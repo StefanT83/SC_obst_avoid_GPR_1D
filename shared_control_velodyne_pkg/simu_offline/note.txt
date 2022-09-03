@@ -1,0 +1,18 @@
+// Test code using offline collected rosbag data
+
+// [test using joypad data only] start joypad data
+$rosbag play -l ../joy_2022-07-26-10-34-43.bag joy:=joy_raw
+
+// [test using velodyne data only] start velodyne data
+$rosbag play -l ./velodyne_2022-07-21-20-27-12.bag
+
+// [test using all sensor data collected on SD2] simulate
+$ rosbag play -l SD2_trial1-2022-08-04.bag /joy:=/joy_raw
+$ rosrun shared_control_velodyne_pkg shared_control_velodyne_node /joy_SC:=/joy
+
+
+
+==========================
+// test on the actual robot
+[on laptop] $rosrun joy joy_node /joy:=/joy_raw
+[on nvidia@192.168.5.160] $rosrun shared_control_velodyne_pkg shared_control_velodyne_node /joy_SC:=/joy

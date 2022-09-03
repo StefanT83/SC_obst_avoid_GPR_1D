@@ -1,0 +1,15 @@
+<launch>
+   <!-- Joypad -->
+   <!--
+   <node pkg="joy" type="joy_node" name="joy">
+      <param name="dev" value="/dev/input/js0"/>
+      <param name="autorepeat_rate" value="20"/>
+      <remap from="/joy" to="/joy_raw"/>
+   </node>
+   -->   
+
+   <!-- Shared control -->
+   <node pkg="shared_control_velodyne_pkg" type="shared_control_velodyne_node" name="shared_control_velodyne">
+      <remap from="/joy_SC" to="/joy"/>
+   </node>	
+</launch>	
