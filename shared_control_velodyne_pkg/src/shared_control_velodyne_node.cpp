@@ -63,11 +63,11 @@ private:
    static constexpr int offset_ring      {16}; //[-]
 
    // // Part 2: physical qtts
-          const double SD2_absvmax_fwd  {0.4}; //[m/s]
-          const double SD2_absvmax_bwd  {-SD2_absvmax_fwd}; //[m/s] to-do: check experimentally the value
+          const double SD2_absvmax_fwd  {0.4}; //[m/s] robot maximum linear velocity when advancing forward
+          const double SD2_absvmax_bwd  {-SD2_absvmax_fwd}; //[m/s] robot maximum linear velocity when advancing backwards
           const double SD2_chassisWidth {SharedControl_velodyne::inch2m(20.0)}; //[m] chassisWidth = 20 inch cf 'PDF Drawing' on https://www.superdroidrobots.com/robots/prebuilt-robots/sold-custom-robots/product=2815
           const double SD2_omegamax     {2.0*SD2_absvmax_fwd/SD2_chassisWidth}; // [rad/s] used formula angle*radius=length, with radius = SD2_chassisWidth/2, then differentiate; see also whc_parameters1.m
-          const double distSensorToEdgeOfRobot = .15; //[m] to-do: check experimentally the value; dist from velodyne sensor to the fwd edge of the chassis width
+          const double distSensorToEdgeOfRobot = .15; //[m] dist from velodyne sensor to the fwd edge of the chassis width
 
    // choose/define accordingly
    static constexpr double sigma_v_nz     {.01}; //[-]
@@ -247,8 +247,6 @@ private:
         ROS_INFO("Case1: User desires (vd_nz=%.3f,omegad_nz=%.3f), and SC issues (vr_nz=%.3f,omegar_nz=%.3f)", vd_nz,omegad_nz, vr_nz,omegar_nz);
       } //if (vd_nz>0)
 
-      // // case2. vehicle advancing fwd + w rotation
-      // WIP..
 
       // // conclude
       publish_joy_SC(vr_nz,omegar_nz);
