@@ -1,7 +1,11 @@
-/* Obstacle avoidance shared control algo for usage on teleoperated robots, using as inputs:
+/* Obstacle avoidance shared control algo for usage on teleoperated robots
+Inputs:
 - lidar: Velodyne VLP16: one ring of data
 - joypad: Sony DS4: right joystick data
 - odometry: linear velocity, angular velocity
+
+Outputs:
+- "virtual" joypad: shared control algorithm output
 
  Sys coordinates conventions:
  - frame rviz [moving frame attached to sensor]: how data is stored in topic /velodyne_points, and wrt which we visualize data in rviz (the red-green-blue axes)
