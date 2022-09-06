@@ -50,7 +50,7 @@ private:
 
    // Def structure of PointCloud2 packet: values according to analysing $rostopic echo /velodyne_points
    //  Explanations: point_step=22 [bytes] allocated to the content of one 3D point = 4 bytes (FLOAT32 i.e. datatype=7) for "x" + 4 bytes (FLOAT32) for "y" + 4 bytes (FLOAT32) for "z" + 4 bytes (FLOAT32) for "intensity" + 2 bytes (UINT16 i.e. datatype=4) for "ring" + 4 bytes (FLOAT32) for "time"
-   //  Visual repres:
+   //  Visual representation:
    //  x         y         z          intensity   ring    time      <- fields
    //  _ _ _ _   _ _ _ _   _ _ _ _    _ _ _ _     _ _     _ _ _ _   <- represent each one byte
    //  0         4         8         12          16      18         <- define the "offset"
@@ -161,7 +161,7 @@ private:
        } // if
      } //for (.)
 
-     //V&V: visalise scan
+     //V&V: visualize scan
      ROS_INFO("scan.size()=%lu", scan.size());
      for (unsigned long bin=0; bin<scan.size(); bin+=10) {
        ROS_INFO("scan[%lu].distUbLobst=%f",bin,scan[bin].distUbLobst);
