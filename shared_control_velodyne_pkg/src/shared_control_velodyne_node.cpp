@@ -273,24 +273,24 @@ private:
    } //void sharedControlAlgo()
 
    // member function
-   double calc_vrMax_nz(double xUobst) {  // formula/relation:  dUbLobst = distSensorToEdgeOfRobot + xUobst
-     // Models the relation between vrUmax_nz and dUbLobst, as a function
+   double calc_vrMax_nz(double xUobstLco) {  // relation between axes: xUvldn = xUobst + distSensorToEdgeOfRobot ; 'co' stands for 'closest obstacle'
+     // Models the relation between vrUmax_nz and xUobstLco, as a mathematical function
      // Output: vrUmax_nz [-]
 
-      // //[var1] linear fct fct(x)=a*x+b, intersecting the points (x=d0,vrMax=0) and (x=dmax,vrMax=1)
+     // //[var1] linear fct fct(x)=a*x+b, intersecting the points (x=d0,vrMax=0) and (x=dmax,vrMax=1)
      // Choose
-     double d0   = 0.1; //[m] d0 is where fct=fct(xUobst) starts ramping up
-     double dmax = 0.62; //[m] dmax is the distance-to-obstacle where the SC kicks in
+     double d0   = 0.2; //[m] d0 is where fct=fct(xUobst) starts ramping up; d0 defined along xUobst
+     double dmax = 0.62; //[m] dmax is the distance-to-obstacle where the SC kicks in; dmax defined along xUobst
 
      // ini: safe value
      double vrMax_nz = nan("");
 
-     if (xUobst<0.0) {
-       ROS_ERROR("Please check xUobst");
-     } else if (xUobst<=d0) {
+     if (xUobstLco<0.0) {
+       ROS_ERROR("Please check xUobstLco");
+     } else if (xUobstLco<=d0) {
        vrMax_nz = 0.0;
-     } else if (xUobst<=dmax) {
-       vrMax_nz = (xUobst-d0)/(dmax-d0);
+     } else if (xUobstLco<dmax) {
+       vrMax_nz = (xUobstLco-d0)/(dmax-d0);
      } else {
        vrMax_nz = 1.0;
      } //if (.)
