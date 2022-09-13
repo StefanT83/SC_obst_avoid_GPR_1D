@@ -360,7 +360,7 @@ public:
       velodyne_sub_  = nh.subscribe<sensor_msgs::PointCloud2>("/velodyne_points", 1, &SharedControl_velodyne::velodyneSubscCallback, this);
       joypad_sub_    = nh.subscribe<sensor_msgs::Joy>("/joy_raw", 1, &SharedControl_velodyne::joypadSubscCallback, this);
       odom_sub_      = nh.subscribe<nav_msgs::Odometry>("/wheel_odom", 1, &SharedControl_velodyne::odometrySubscCallback, this);
-      joypad_SC_pub_ = nh_.advertise<sensor_msgs::Joy>("/joy_SC",1);
+      joypad_SC_pub_ = nh_.advertise<sensor_msgs::Joy>("/joy_out",1);
 
    } // SharedControl_velodyne(.)
 
