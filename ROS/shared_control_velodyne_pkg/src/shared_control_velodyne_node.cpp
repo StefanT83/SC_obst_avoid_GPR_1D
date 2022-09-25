@@ -354,9 +354,7 @@ public:
       // assign the correct size to vectors
       scan.resize(static_cast<unsigned long int>(SIZE),temp);
 
-      //V&V
-      //for (float x:scan_distUbLobst) std::cout << x << " ";
-
+      // ROS subscribers and publishers
       velodyne_sub_  = nh.subscribe<sensor_msgs::PointCloud2>("/velodyne_points", 1, &SharedControl_velodyne::velodyneSubscCallback, this);
       joypad_sub_    = nh.subscribe<sensor_msgs::Joy>("/joy_raw", 1, &SharedControl_velodyne::joypadSubscCallback, this);
       odom_sub_      = nh.subscribe<nav_msgs::Odometry>("/wheel_odom", 1, &SharedControl_velodyne::odometrySubscCallback, this);
