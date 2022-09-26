@@ -228,7 +228,7 @@ private:
         PointObst closestPointObstStraightAhead {0, 33, 33, M_PI, 1};
 
         // check all points
-        for (auto id=1; id<scan.size(); id++ ) { // index starts at 1 because the ini point was set to scan[0]
+        for (auto id=0; id<scan.size(); id++ ) { 
           if (scan[id].distUbLobst<closestPointObstStraightAhead.distUbLobst) { //then we have found a candidate for closestPointObst
             //ROS_INFO("Case1: Found closer point (obstacle): angleUbLobst=%f [deg], distUbLobst=%f [m], xUbLobst=%f [m], yUbLobst=%f [m], intensity=%f [?]",rad2deg(closestPointObstStraightAhead.angleUbLobst), closestPointObstStraightAhead.distUbLobst, closestPointObstStraightAhead.xUbLobst, closestPointObstStraightAhead.yUbLobst, closestPointObstStraightAhead.intensity);
 
