@@ -48,7 +48,7 @@ private:
    // Choose one ring among the 16 rings of VLP-16: this corresp to a 2D plane cut
    static constexpr uint16_t ring {8}; // VLP-16, same notation cf https://github.com/ros-drivers/velodyne/blob/master/velodyne_laserscan/src/velodyne_laserscan.cpp
 
-   // Def structure of PointCloud2 packet: values according to analysing $rostopic echo /velodyne_points
+   // Def structure of PointCloud2 packet: values according to analysing $rostopic echo /velodyne_points | grep head -n 40
    //  Explanations: point_step=22 [bytes] allocated to the content of one 3D point = 4 bytes (FLOAT32 i.e. datatype=7) for "x" + 4 bytes (FLOAT32) for "y" + 4 bytes (FLOAT32) for "z" + 4 bytes (FLOAT32) for "intensity" + 2 bytes (UINT16 i.e. datatype=4) for "ring" + 4 bytes (FLOAT32) for "time"
    //  Visual representation:
    //  x         y         z          intensity   ring    time      <- fields
