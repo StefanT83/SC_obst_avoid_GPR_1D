@@ -16,12 +16,11 @@ Outputs:
                   yUrvizLobst <------+-------> xUvldLobst
 - frame b [moving frame attached to sensor]: obtained by rotating rviz by summing 90 deg (thus obtaining frame vld) + phiUbLmisalign, where phiUbLmisalign is the angle betwenn xUrviz and yUb, expressed wrt/in-coord-of frame b
 
- Code (architecture) inspired from:
-  https://github.com/ros-drivers/velodyne/blob/master/velodyne_laserscan/src/
-  https://github.com/StefanT83/ASC_policy_iter/blob/main/ROS/src/shared_control_policy_iter_PMspeed5_node.cpp
-  https://wiki.ros.org/pcl/Overview
-
 Code resources:
+ https://github.com/ros-drivers/velodyne/blob/master/velodyne_laserscan/src/
+ https://github.com/StefanT83/ASC_policy_iter/blob/main/ROS/src/shared_control_policy_iter_PMspeed5_node.cpp
+
+ https://wiki.ros.org/pcl/Overview
  https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/PointCloud2.html
  https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/LaserScan.html
 */
