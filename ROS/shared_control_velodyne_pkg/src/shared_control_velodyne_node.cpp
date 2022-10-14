@@ -80,6 +80,7 @@ private:
 
    std::vector<PointObst> scan;
 
+   // ROS	
    ros::NodeHandle nh_; // in C++ the naming convention of a variable with an underscore usually indicates a private member variable: see B2017Newman, Comment p55
    ros::Subscriber velodyne_sub_, joypad_sub_, odom_sub_;
    ros::Publisher  joypad_SC_pub_;
