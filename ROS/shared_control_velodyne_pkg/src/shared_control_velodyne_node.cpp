@@ -346,7 +346,7 @@ private:
 
 public:
    // constructor
-   SharedControl_velodyne(ros::NodeHandle& nh) :nh_(nh), vd_nz(0.0), omegad_nz(0.0), v_nz(0.0) {
+   explicit SharedControl_velodyne(ros::NodeHandle& nh) :nh_(nh), vd_nz(0.0), omegad_nz(0.0), v_nz(0.0) {  //wo 'explicit' keyword, single-argument constructors have the potential to be wrongly used as conversion constructors
       // create an 'empty' PointObst
       PointObst temp {nan(""),nan(""),nan(""),nan(""),nan("")};
 
