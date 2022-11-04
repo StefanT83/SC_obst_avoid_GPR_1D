@@ -75,7 +75,7 @@ private:
           const double phiUbLmisalign = deg2rad(0.0); //[rad] see def above, this angle captures the fact that the velodyne sensor axis pointing fwd (namely xUrviz == yUvld) is not perfectly parallel to the lenght of the SD2 robot
 
    // // Part 3 - data members
-   double vd_nz, omegad_nz, v_nz; //normalized values
+   double vd_nz, omegad_nz; //normalized values
    double v, omega; //odometry: v [m/s]; omega [rad/s]
 
    std::vector<PointObst> scan;
